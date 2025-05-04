@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, User, Award, Laptop as LaptopCode, BookOpen, Contact2 } from 'lucide-react';
+import { Menu, User, Award, Laptop as LaptopCode, BookOpen, Contact2, Github, Linkedin, Mail } from 'lucide-react';
 import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
@@ -51,6 +51,32 @@ function App() {
     { id: 'experience', icon: <Award size={20} />, label: 'Experience' },
     { id: 'blogs', icon: <BookOpen size={20} />, label: 'Blogs', isExternal: true },
     { id: 'contact', icon: <Contact2 size={20} />, label: 'Contact' }
+  ];
+
+  const footerLinks = [
+    { icon: <Github size={20} />, href: "https://github.com/Chintu1308", label: "GitHub" },
+    { icon: <Linkedin size={20} />, href: "https://linkedin.com/in/bhhc", label: "LinkedIn" },
+    { icon: <Mail size={20} />, href: "mailto:bhhc1308@gmail.com", label: "Email" }
+  ];
+
+  const footerSections = [
+    {
+      title: "Navigation",
+      links: [
+        { label: "About", href: "#about" },
+        { label: "Projects", href: "#projects" },
+        { label: "Experience", href: "#experience" },
+        { label: "Contact", href: "#contact" }
+      ]
+    },
+    {
+      title: "Resources",
+      links: [
+        { label: "Blog", href: "/blogs" },
+        { label: "Resume", href: "/Bongu Hari Hara Charan Resume.pdf", target: "_blank" },
+        { label: "Certifications", href: "#certifications" }
+      ]
+    }
   ];
 
   return (
@@ -191,11 +217,70 @@ function App() {
         </section>
       </main>
 
-      <footer className="bg-gray-900 py-8">
+      <footer className="bg-gray-900/90 backdrop-blur-md py-12 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-gray-400">
-            © 2025 Hari Hara Charan. All rights reserved.
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Brand Section */}
+            <div className="space-y-4">
+              <h2 className="text-xl font-bold text-gradient">Hari Hara Charan</h2>
+              <p className="text-gray-400 text-sm">
+                Computer Science Undergraduate passionate about creating innovative solutions and contributing to the tech community.
+              </p>
+              <div className="flex space-x-4">
+                {footerLinks.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                    aria-label={link.label}
+                  >
+                    {link.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation Sections */}
+            {footerSections.map((section, index) => (
+              <div key={index} className="space-y-4">
+                <h3 className="text-lg font-semibold text-gray-200">{section.title}</h3>
+                <ul className="space-y-2">
+                  {section.links.map((link, linkIndex) => (
+                    <li key={linkIndex}>
+                      <a
+                        href={link.href}
+                        className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+
+            {/* Contact Section */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-200">Contact</h3>
+              <p className="text-gray-400 text-sm">
+                Feel free to reach out for collaborations or just a friendly chat.
+              </p>
+              <a
+                href="mailto:bhhc1308@gmail.com"
+                className="text-blue-400 hover:text-blue-300 transition-colors duration-200 text-sm"
+              >
+                bhhc1308@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-gray-800">
+            <p className="text-center text-gray-400 text-sm">
+              © {new Date().getFullYear()} Hari Hara Charan. All rights reserved.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
