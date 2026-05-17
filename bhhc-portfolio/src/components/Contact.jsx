@@ -18,8 +18,8 @@ const INFO_ITEMS = [
 ];
 
 const CoinFace = ({ idSuffix, rotationY }) => (
-  <div 
-    className="absolute inset-0 flex items-center justify-center" 
+  <div
+    className="absolute inset-0 flex items-center justify-center"
     style={{ backfaceVisibility: 'hidden', transform: `rotateY(${rotationY}) translateZ(0.5px)` }}
   >
     {/* Rotating dashed border (inner gears) */}
@@ -38,8 +38,8 @@ const CoinFace = ({ idSuffix, rotationY }) => (
 
     {/* Center text bhhc.me */}
     <div className="z-10 flex flex-col items-center">
-      <div className="font-display font-black text-2xl tracking-tighter mix-blend-screen" 
-           style={{ color: '#e8fff4', textShadow: '0 0 20px rgba(57,211,83,0.8)' }}>
+      <div className="font-display font-black text-2xl tracking-tighter mix-blend-screen"
+        style={{ color: '#e8fff4', textShadow: '0 0 20px rgba(57,211,83,0.8)' }}>
         bhhc<span className="text-[#39d353]">.</span>me
       </div>
     </div>
@@ -92,7 +92,7 @@ export default function Contact() {
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setErrors({});
     setStatus('sending');
-    
+
     try {
       // TODO: Set up emailjs.com account, connect Gmail, and replace these keys:
       const SERVICE_ID = 'YOUR_SERVICE_ID';
@@ -109,7 +109,7 @@ export default function Contact() {
         },
         PUBLIC_KEY
       );
-      
+
       setStatus('sent');
       setForm(INITIAL);
     } catch (err) {
@@ -179,8 +179,8 @@ export default function Contact() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   {[
-                    { key: 'name', label: 'Enter your name:', type: 'text', placeholder: 'John Doe' },
-                    { key: 'email', label: 'Enter your email:', type: 'email', placeholder: 'recruiter@company.com' },
+                    { key: 'name', label: 'Enter your name:', type: 'text', placeholder: 'Name' },
+                    { key: 'email', label: 'Enter your email:', type: 'email', placeholder: 'Email' },
                   ].map(({ key, label, type, placeholder }) => (
                     <div key={key}>
                       <label className="block font-mono text-xs text-textMuted mb-1.5">
@@ -210,7 +210,7 @@ export default function Contact() {
                       rows={5}
                       value={form.message}
                       onChange={e => setForm(p => ({ ...p, message: e.target.value }))}
-                      placeholder="Hi BHHC, I'd love to discuss an opportunity..."
+                      placeholder="Your message..."
                       className={`${inputClass} resize-none`}
                       style={{ ...inputStyle, borderColor: errors.message ? '#ef4444' : 'rgba(0,255,136,0.15)' }}
                       onFocus={inputFocus}
@@ -262,9 +262,9 @@ export default function Contact() {
               }}
             >
               <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at center, rgba(0,255,136,0.05) 0%, transparent 60%)' }} />
-              
+
               <div className="relative w-36 h-36 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
-                <div 
+                <div
                   className="absolute inset-0 flex items-center justify-center"
                   style={{ animation: 'coin-spin 10s linear infinite', transformStyle: 'preserve-3d' }}
                 >

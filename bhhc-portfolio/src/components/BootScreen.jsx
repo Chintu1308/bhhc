@@ -7,7 +7,7 @@ const ASCII_LOGO = `
  ██████╔╝███████║███████║██║         ██╔████╔██║█████╗  
  ██╔══██╗██╔══██║██╔══██║██║         ██║╚██╔╝██║██╔══╝  
  ██████╔╝██║  ██║██║  ██║╚██████╗    ██║ ╚═╝ ██║███████╗
- ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝   ╚═╝     ╚═╝╚══════╝`;
+ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ██ ╚═╝     ╚═╝╚══════╝`;
 
 
 // Waving frames — face stays, only the greeting line changes
@@ -169,20 +169,20 @@ export default function BootScreen({ onComplete }) {
               if (line.startsWith('  [████')) {
                 return <div key={idx} style={{ color: '#39d353', fontSize: 'clamp(9px, 1.4vw, 12px)' }}>{line}</div>;
               }
-              const isOk     = line.includes('[OK]');
-              const isReady  = line.includes('READY');
-              const isArmed  = line.includes('ARMED');
+              const isOk = line.includes('[OK]');
+              const isReady = line.includes('READY');
+              const isArmed = line.includes('ARMED');
               const isWinner = line.includes('WINNER');
               const isActive = line.includes('ACTIVE');
               const isOnline = line.includes('ONLINE');
 
               let color = '#39d353';
-              if (line.startsWith('───'))  color = '#1a4a2e';
-              else if (isOk || isReady)    color = '#39d353';
-              else if (isArmed)            color = '#f59e0b';
-              else if (isWinner)           color = '#fbbf24';
-              else if (isActive)           color = '#0dcfc0';
-              else if (isOnline)           color = '#00ff88';
+              if (line.startsWith('───')) color = '#1a4a2e';
+              else if (isOk || isReady) color = '#39d353';
+              else if (isArmed) color = '#f59e0b';
+              else if (isWinner) color = '#fbbf24';
+              else if (isActive) color = '#0dcfc0';
+              else if (isOnline) color = '#00ff88';
 
               return (
                 <div key={idx} style={{ color, fontSize: 'clamp(9px, 1.4vw, 12px)', lineHeight: 1.5, whiteSpace: 'pre' }}>
@@ -211,9 +211,9 @@ export default function BootScreen({ onComplete }) {
             {/* Scanlines overlay */}
             <div className="absolute inset-0 pointer-events-none z-10 opacity-30" style={{ background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, #000 2px, #000 4px)' }}></div>
             {/* The Image */}
-            <img 
-              src={heroImg} 
-              alt="BHHC" 
+            <img
+              src={heroImg}
+              alt="BHHC"
               className="w-full h-full object-cover mix-blend-screen"
               style={{ filter: 'grayscale(100%) sepia(100%) hue-rotate(85deg) saturate(300%) contrast(150%) brightness(0.8)' }}
             />

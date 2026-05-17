@@ -95,12 +95,21 @@ function Divider({ color = 'var(--primary)' }) {
 
 export default function App() {
   const [booting, setBooting] = useState(false);
+  const [showBlog, setShowBlog] = useState(false);
   const [cityMode, setCityMode] = useState(() => {
     try { return localStorage.getItem('bhhc_cityMode') === 'true'; } catch { return false; }
   });
 
   useEffect(() => {
     if (!sessionStorage.getItem('bhhc_booted')) setBooting(true);
+    
+    const handleHash = () => {
+      setShowBlog(window.location.hash === '#blog');
+    };
+    
+    window.addEventListener('hashchange', handleHash);
+    handleHash(); // initial check
+    return () => window.removeEventListener('hashchange', handleHash);
   }, []);
 
   useEffect(() => {
@@ -119,14 +128,18 @@ export default function App() {
       {booting && <BootScreen onComplete={handleBootComplete} />}
 
       <div style={{ opacity: booting ? 0 : 1, transition: 'opacity 0.7s ease', pointerEvents: booting ? 'none' : 'auto' }}>
-        <Navbar cityMode={cityMode} setCityMode={setCityMode} />
-
-        {cityMode ? (
-          <UnderConstruction onBack={() => setCityMode(false)} />
+        {showBlog ? (
+          <Blog />
         ) : (
-          <main className="w-full overflow-x-hidden">
-            <BuildProgress />
-            <Hero />
+          <>
+            <Navbar cityMode={cityMode} setCityMode={setCityMode} />
+
+            {cityMode ? (
+              <UnderConstruction onBack={() => setCityMode(false)} />
+            ) : (
+              <main className="w-full overflow-x-hidden">
+                <BuildProgress />
+                <Hero />
             <StatsBar />
             <Divider color="#0dcfc0" />
             <About />
@@ -138,12 +151,12 @@ export default function App() {
             <Skills />
             <Divider color="#818cf8" />
             <Achievements />
-            <Divider color="#f0c040" />
-            <Blog />
             <Divider color="#0dcfc0" />
-            <Contact />
-            <Footer />
-          </main>
+                <Contact />
+                <Footer />
+              </main>
+            )}
+          </>
         )}
       </div>
     </>
