@@ -6,467 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Hari Hara Charan Bongu</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    />
-    <style>
-
-.container {
-    display: flex;
-    flex-direction: column; /* Align children vertically */
-    align-items: center; /* Center children horizontally */
-}
-
-
-.navbar {
-    display: flex;
-    justify-content: space-between; /* Divide navbar into two halves */
-    align-items: center;
-    height: 6rem;
-    padding: 1rem;
-    background-color: var(--white);
-    border: 1px solid var(--white);
-    border-radius: 50px;
-    box-shadow: var(--shadow-green);
-}
-
-.navbar-left {
-    display: flex;
-    align-items: center;
-}
-
-.navbar-right {
-    display: flex;
-    justify-content: center; /* Center the navbar right part */
-    align-items: center;
-}
-
-.navbar-icons {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    justify-content: flex-end; /* Push icons to the right */
-}
-
-.navbar-icon {
-    margin-left: 1rem;
-    margin-right: 1rem; /* Add margin between icons */
-    cursor: pointer;
-}
-
-.navbar-logo {
-    height: 4rem;
-    width: auto;
-    margin-right: 1rem;
-}
-
-.navbar-icon a {
-    text-decoration: none;
-            color: #000;
-            font-weight: bold;
-            font-size: 16px;
-            transition: color 0.3s ease-in-out;
-}
-    
-
-.navbar-icon i {
-    font-size: 2rem;
-    color: var(--green-dark);
-}
-
-.navbar-icon span {
-    opacity: 0;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--green);
-    margin-left: -4rem;
-    transition: opacity 0.1s ease, margin-left 0.4s ease;
-}
-
-.active.navbar-icon {
-    background-color: var(--green-light-opacity);
-    border-radius: 35px;
-}
-
-.active.navbar-icon i {
-    color: var(--green);
-}
-
-.active.navbar-icon span {
-    opacity: 1;
-    margin-left: 0.8rem;
-}
-
-        /* Additional styles and animations go here */
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            background: url('images/bg.jpg') center/cover no-repeat;
-            height: 100vh;
-            font-size: 16px;
-            font-family: 'Arial', sans-serif;
-            transition: background 0.5s ease;
-        }
-
-       
-
-
-
-.container {
-    margin-top: 2rem; /* Adjust spacing between navbar and content */
-    width: 80%; /* Adjust container width as needed */
-    
-}
-
-/* CSS for screens smaller than 800px */
-@media screen and (max-width: 800px) {
-    .container {
-        width: 100%;
-    }
-}
-
-/* CSS for screens smaller than 600px */
-@media screen and (max-width: 600px) {
-    body {
-        font-size: 14px;
-    }
-}
-
-        /* Navigation styles */
-        .menu_main {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            background: white;
-            z-index: 1000;
-        }
-
-        .menu_left {
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease; /* Added animation on hover */
-        }
-
-        .menu_left:hover {
-            transform: scale(1.1);
-        }
-
-        .menu_left img {
-            width: 80px;
-            margin-bottom: 20px;
-        }
-
-        .menu_right {
-            flex-grow: 1;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        .menu_right ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
-
-        .menu_right li {
-            margin-left: 20px;
-            transition: transform 0.3s ease; /* Added animation on hover */
-        }
-
-        .menu_right li:hover {
-            transform: scale(1.1);
-        }
-
-        .menu_right a {
-            text-decoration: none;
-            color: #000;
-            font-weight: bold;
-            font-size: 16px;
-            transition: color 0.3s ease-in-out;
-        }
-
-        .menu_right a:hover {
-            color: #7caeff;
-        }
-
-        /* Welcome section styles */
-        .welcome {
-            text-align: center;
-            padding: 50px;
-            color: #fff;
-            background: rgba(0, 0, 0, 0.5);
-            transition: background 0.5s ease;
-        }
-
-        .welcome:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .welcome h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-
-        .welcome p {
-            margin-top: 20px;
-        }
-
-        /* Content section styles */
-        .content {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 60px;
-        }
-
-        .overlay {
-            background: rgba(255, 255, 255, 0);
-            color: #ffffff;
-            text-align: center;
-            font-family: "Open Sans", sans-serif;
-            padding: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(7px);
-            transition: background 0.5s ease;
-            border-radius: 8px;
-        }
-
-        .overlay:hover {
-            background: rgba(255, 255, 255, 0);
-        }
-
-        h1 {
-            margin: 0;
-        }
-
-        .social-icons {
-            margin-top: 20px;
-        }
-
-        .social-icons a {
-            margin: 0 15px;
-            display: inline-block;
-        }
-
-        .social-icons img {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-        }
-
-        /* About Me section styles */
-        .about-me {
-            background: white;
-            color: #000;
-            padding: 20px;
-            width: 100%;
-            margin-top: 20px;
-            display: flex;
-            transition: transform 0.3s ease; /* Added animation on hover */
-        }
-
-        .about-me:hover {
-            transform: scale(1.02);
-        }
-
-        .about-left {
-            flex-basis: 80%;
-            padding-right: 20px;
-        }
-
-        .about-right {
-            flex-basis: 40%;
-        }
-
-        .about-right img {
-            width: 100%; /* Updated width */
-            height: auto;
-            border-radius: 25px;
-        }
-
-        /* My Work section styles */
-        .my-work {
-            background: white;
-            color: #000;
-            padding: 20px;
-            width: 100%;
-            margin-top: 20px;
-            transition: transform 0.3s ease; /* Added animation on hover */
-        }
-
-        .my-work:hover {
-            transform: scale(1.02);
-        }
-
-        .my-work h2 {
-            margin-bottom: 10px;
-        }
-
-        .video-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        .video-container iframe {
-            width: 48%;
-            box-sizing: border-box;
-        }
-
-        /* Photo Collection section styles */
-        #photo-collection {
-            background: white;
-            color: #000;
-            padding: 20px;
-            width: 100%;
-            margin-top: 20px;
-            transition: transform 0.3s ease; /* Added animation on hover */
-        }
-
-        #photo-collection:hover {
-            transform: scale(1.02);
-        }
-
-        #photo-collection h2 {
-            text-align: center;
-        }
-
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-
-        .gallery img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            margin-bottom: 20px;
-            border-radius: 25px;
-        }
-
-        .square-gallery {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-
-        .square-gallery img {
-            width: 30%;
-            height: auto;
-            margin-bottom: 20px;
-            border-radius: 25px;
-        }
-
-        /* Contact section styles */
-        #contact {
-            background: white;
-            color: #000;
-            padding: 20px;
-            width: 100%;
-            margin-top: 20px;
-            transition: transform 0.3s ease; /* Added animation on hover */
-        }
-
-        #contact:hover {
-            transform: scale(1.02);
-        }
-
-        #contact h2 {
-            margin-bottom: 10px;
-        }
-
-        #contact p {
-            margin-bottom: 20px;
-        }
-
-        #contact ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #contact li {
-            margin-bottom: 10px;
-        }
-
-	.projects-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 20px;
-    }
-
-    .project-column {
-        text-align: left; /* Align to the left */
-        margin-bottom: 20px; /* Add margin between title/description and video */
-    }
-
-    .project-column h2 {
-        text-align: center;
-    }
-
-    .project-video {
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    .project-video iframe {
-        width: 100%;
-        height: 100%;
-        transform: scale(0.7); /* Adjust the scale factor as needed */
-    }
-
-    
-    
-
-    </style>
+    <link rel="icon" href="https://raw.githubusercontent.com/Chintu1308/bhhc/main/OldSite/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 </head>
 
 <body class="bg-image">
-    
 
     <nav class="navbar">
         <div class="navbar-left">
-            <img src="images/logo.png" alt="Logo" class="navbar-logo">
+            <img src="https://raw.githubusercontent.com/Chintu1308/bhhc/main/OldSite/images/logo.png" alt="Logo" class="navbar-logo">
         </div>
         <div class="navbar-right">
             <ul class="navbar-icons">
-                <a href="#About">
-                <li class="navbar-icon">
-                    <i class="fa-regular fa-circle-user"></i>
-                    <span>About</a></span>
-                </li>
-                <li class="navbar-icon">
-                    <a href="#MyWork">
-                    <i class="fa-solid fas fa-award"></i>
-                    <span>My Work</a></span>
-                </li>
-                <li class="navbar-icon">
-                    <a href="#Projects">
-                    <i class="fa-solid fas fa-laptop-code"></i>
-                    <span>Projects</a></span>
-                </li>
-                <li class="navbar-icon">
-                    <a href="BlogPage/index.html">
-                    <i class="fa-solid fas fa-book-reader"></i>
-                    <span>Blogs</a></span>
-                </li>
-                <li class="navbar-icon">
-                    <a href="#Contact">
-                    <i class="fa-solid fas fa-address-card"></i>
-                    <span>Contact</a></span>
-                </li>
+                <li class="navbar-icon"><a href="#About"><i class="fa-regular fa-circle-user"></i><span>About</span></a></li>
+                <li class="navbar-icon"><a href="#MyWork"><i class="fa-solid fas fa-award"></i><span>My Work</span></a></li>
+                <li class="navbar-icon"><a href="#Projects"><i class="fa-solid fas fa-laptop-code"></i><span>Projects</span></a></li>
+                <li class="navbar-icon"><a href="BlogPage/index.html"><i class="fa-solid fas fa-book-reader"></i><span>Blogs</span></a></li>
+                <li class="navbar-icon"><a href="#Contact"><i class="fa-solid fas fa-address-card"></i><span>Contact</span></a></li>
             </ul>
         </div>
     </nav>
@@ -475,15 +33,9 @@
         <div class="overlay">
             <h1>Hari Hara Charan Bongu</h1>
             <div class="social-icons">
-                <a href="https://www.instagram.com/binge_watcher._/">
-                    <img src="images/instagram.png" alt="Instagram">
-                </a>
-                <a href="https://www.linkedin.com/in/bhhc">
-                    <img src="images/linkedin.png" alt="LinkedIn">
-                </a>
-		<a href="https://www.github.com/Chintu1308">
-			<img src="images/git2.png" alt="GitHub">
-		</a>
+                <a href="https://www.instagram.com/binge_watcher._/"><img src="https://raw.githubusercontent.com/Chintu1308/bhhc/main/OldSite/images/instagram.png" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/in/bhhc"><img src="https://raw.githubusercontent.com/Chintu1308/bhhc/main/OldSite/images/linkedin.png" alt="LinkedIn"></a>
+                <a href="https://www.github.com/Chintu1308"><img src="https://raw.githubusercontent.com/Chintu1308/bhhc/main/OldSite/images/git2.png" alt="GitHub"></a>
             </div>
         </div>
     </div>
@@ -507,58 +59,58 @@
                 <p>Thank you for visiting, and let's embark on this journey of exploration and innovation together!</p>
             </div>
             <div class="about-right">
-                <img src="images/img.jpg" alt="About Me Image">
+                <img src="https://raw.githubusercontent.com/Chintu1308/bhhc/main/OldSite/images/img.jpg" alt="About Me Image">
             </div>
         </div>
     </div>
 
     <div class="projects" id="Projects">
-        <div class="project-column">
-            <h2>Projects</h2>
-            <h4>project0</h4>
-            <p>Check out my latest project about Unveiling Audio Secrets: Explore the World of Different Audio File Types in this enlightening video. From the uncompressed brilliance of WAV and AIFF to the space-saving magic of MP3 and AAC, discover the intricacies that shape our audio experiences. Delve into the realms of OGG, FLAC, and MIDI, understanding how each format influences sound quality, file size, and application. Join us for a visually compelling exploration, breaking down the complexities of audio file types for both novices and enthusiasts. Decode the mysteries behind professional music production, online streaming, and gaming applications, gaining insights into the preferred formats for diverse scenarios. Uncover the magic behind the notes with MIDI, and appreciate the balance between quality and efficiency in the world of audio file formats</p>
-        </div>
-        <div class="project-column">
-            <div class="project-video">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/2ecp8nNKtOw?si=nKPLZecAu3YSb0eo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <h2>Projects</h2>
+        <div class="projects-container">
+            <div class="project-column">
+                <h3>Unveiling Audio Secrets</h3>
+                <p>Explore different audio file formats and when to use them. This short video compares uncompressed formats (WAV, AIFF) with compressed ones (MP3, AAC), and also covers FLAC, OGG and MIDI — helping you choose the right format for quality vs size tradeoffs.</p>
+                <div class="embed-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/2ecp8nNKtOw?si=0S4hb4V1jTMZPZV2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
             </div>
-        </div>
-    </div>
-    
-    <h4>Project1</h4>
-    <p>Join me in unraveling the secrets of computer science in this short yet insightful video! Inspired by Harvard's CS50 course, I break down the basics of computer functioning and demonstrate how code transforms into machine language. Packed with practical tips and techniques, including a special focus on debugging, this video is perfect for beginners and enthusiasts alike. Get ready to level up your coding skills and unlock the mysteries of computer science with ease. </p>
-        </div>
-        <div class="project-column">
-            <div class="project-video">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/DjBwLnOdAT8?si=jfk-uqQRvZ1pknN9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <div class="project-column">
+                <h3>Computer Science Fundamentals</h3>
+                <p>A concise walkthrough inspired by CS50 that explains how computers run code and how source code becomes machine instructions. Includes practical debugging tips for beginners.</p>
+                <div class="embed-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/DjBwLnOdAT8?si=VxdEaZHr8yH_T11X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="my-work" id="MyWork">
-        <div class="my-work">
+        <div class="my-work-inner">
             <h2>My Work</h2>
             <div class="video-container">
-                <iframe width="560" height="400" src="https://www.youtube.com/embed/0PtMeGd_eis?si=mAX7_UMPWnzmN-R0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                <iframe width="560" height="400" src="https://www.youtube.com/embed/D3pH6LqQqKk?si=u6_8PjdOTlHcJw6s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="embed-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/0PtMeGd_eis?si=mAX7_UMPWnzmN-R0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="embed-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/D3pH6LqQqKk?si=u6_8PjdOTlHcJw6s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
         <div id="photo-collection">
             <h2>Photo Collection</h2>
             <div class="gallery">
-                <a href="https://www.instagram.com/p/CwnWaOHvpyO/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="><img src="images/photo1.jpg" alt="Photo 1"></a>
-                <a href="https://www.instagram.com/p/Cy9LWu8S7B3/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="><img src="images/photo4.jpg" alt="Photo 4"></a>
-                <a href="https://www.instagram.com/p/CzHTJwXPNPC/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="><img src="images/photo5.jpg" alt="Photo 5"></a>
+                <a href="https://www.instagram.com/p/CwnWaOHvpyO/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="><img src="https://raw.githubusercontent.com/Chintu1308/bhhc/main/OldSite/images/photo1.jpg" alt="Photo 1"></a>
+                <a href="https://www.instagram.com/p/Cy9LWu8S7B3/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="><img src="https://raw.githubusercontent.com/Chintu1308/bhhc/main/OldSite/images/photo4.jpg" alt="Photo 4"></a>
+                <a href="https://www.instagram.com/p/CzHTJwXPNPC/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=="><img src="https://raw.githubusercontent.com/Chintu1308/bhhc/main/OldSite/images/photo5.jpg" alt="Photo 5"></a>
             </div>
             <div class="square-gallery">
-                <img src="images/photo7.jpg" alt="Square Photo 7">
-                <img src="images/photo6.jpg" alt="Square Photo 6">
-                <img src="images/photo3.jpg" alt="Square Photo 3">
+                <img src="https://raw.githubusercontent.com/Chintu1308/bhhc/main/OldSite/images/photo7.jpg" alt="Square Photo 7">
+                <img src="https://raw.githubusercontent.com/Chintu1308/bhhc/main/OldSite/images/photo6.jpg" alt="Square Photo 6">
+                <img src="https://raw.githubusercontent.com/Chintu1308/bhhc/main/OldSite/images/photo3.jpg" alt="Square Photo 3">
             </div>
         </div>
     </div>
-
-
 
     <div id="Contact">
         <h2>Contact</h2>
@@ -567,57 +119,25 @@
             <li>Email: <a href="mailto:bhhc1308@gmail.com">bhhc1308@gmail.com</a></li>
             <li>
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/binge_watcher._/">
-                        <img src="images/instagram.png" alt="Instagram">
-                    </a>
-                    <a href="https://www.linkedin.com/in/bhhc">
-                        <img src="images/linkedin.png" alt="LinkedIn">
-                    </a>
-		    <a href="https://www.github.com/Chintu1308">
-			<img src="images/github.png" alt="GitHub">
-		    </a>
+                    <a href="https://www.instagram.com/binge_watcher._/"><img src="https://raw.githubusercontent.com/Chintu1308/bhhc/main/OldSite/images/instagram.png" alt="Instagram"></a>
+                    <a href="https://www.linkedin.com/in/bhhc"><img src="https://raw.githubusercontent.com/Chintu1308/bhhc/main/OldSite/images/linkedin.png" alt="LinkedIn"></a>
+                    <a href="https://www.github.com/Chintu1308"><img src="https://raw.githubusercontent.com/Chintu1308/bhhc/main/OldSite/images/github.png" alt="GitHub"></a>
                 </div>
             </li>
         </ul>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
     <script>
-        function animateButton() {
-            var button = document.querySelector('.animated-button');
-            button.classList.add('animate');
-
-            
-            setTimeout(function () {
-                button.classList.remove('animate');
-            }, 1000); 
-        }
-
-
-        let links = document.querySelectorAll(".navbar-icon");
-      const navbar = document.querySelector(".navbar");
-      let isDark = false;
-      const clearActive = () => {
-        for (link of links) link.classList.remove("active");
-      };
-
-      for (link of links) {
-        link.onmouseover = function () {
-          clearActive();
-          this.classList.add("active");
-        };
-      }
-
-      const changeAppearance = () => {
-        if (!isDark) {
-          navbar.classList.add("dark");
-          isDark = !isDark;
-        } else {
-          navbar.classList.remove("dark");
-          isDark = !isDark;
-        }
-      };
+        function animateButton() { var button = document.querySelector('.animated-button'); button.classList.add('animate'); setTimeout(function(){ button.classList.remove('animate') },1000) }
+        let links = document.querySelectorAll(".navbar-icon"); const navbar = document.querySelector(".navbar"); let isDark=false; const clearActive = () => { for (link of links) link.classList.remove("active") };
+        for (link of links) { link.onmouseover = function(){ clearActive(); this.classList.add("active") } }
+        const changeAppearance = () => { if (!isDark) { navbar.classList.add("dark"); isDark=!isDark } else { navbar.classList.remove("dark"); isDark=!isDark } };
     </script>
 
-</body>
+    
 
+</body>
 </html>

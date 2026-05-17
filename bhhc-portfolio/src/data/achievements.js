@@ -1,0 +1,65 @@
+export const achievements = [
+  {
+    id: 1,
+    icon: "🏆",
+    title: "WoW Vizag 2025 Hackathon",
+    subtitle: "Winner",
+    detail: "24-hour competitive build — beat teams across Visakhapatnam",
+    badge: "WINNER",
+    badgeColor: "#f59e0b",
+  },
+  {
+    id: 2,
+    icon: "🏆",
+    title: "Hack the Model",
+    subtitle: "Winner",
+    detail: "April 2025 — ML-based solution, competed against regional teams",
+    badge: "WINNER",
+    badgeColor: "#f59e0b",
+  },
+  {
+    id: 3,
+    icon: "📜",
+    title: "Patent Published",
+    subtitle: "Indian Patent Office",
+    detail: "Filed Jan 2026 · Published Feb 2026",
+    badge: "ACTIVE",
+    badgeColor: "#0dcfc0",
+  },
+  {
+    id: 4,
+    icon: "🎓",
+    title: "B.Tech CSE 2023–2027",
+    subtitle: "GVP College of Engineering (Autonomous)",
+    detail: "Gayatri Vidya Parishad, Visakhapatnam",
+    badge: "ONGOING",
+    badgeColor: "#39d353",
+  },
+  {
+    id: 5,
+    icon: "💼",
+    title: "Treasurer — AsCI",
+    subtitle: "Association of Computer Intellects",
+    detail: "Managing operations and events for the CS department club",
+    badge: "ACTIVE",
+    badgeColor: "#39d353",
+  },
+  {
+    id: 6,
+    icon: "🎭",
+    title: "Joint Secretary — GCCC",
+    subtitle: "Gayatri College Cultural Club",
+    detail: "Coordinating cultural events across the campus",
+    badge: "ACTIVE",
+    badgeColor: "#818cf8",
+  },
+];
+
+export const patent = {
+  title:
+    "Artificial Intelligence (AI)–Based System for Detection and Response to Aquatic Safety Events and Method Thereof",
+  filed: "January 2026",
+  published: "February 2026",
+  publisher: "Indian Patent Office",
+  tags: ["AI", "Safety Systems", "IoT", "Emergency Response"],
+};
