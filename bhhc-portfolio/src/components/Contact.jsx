@@ -1,7 +1,8 @@
-import { useState, useRef, useEffect, lazy, Suspense } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Github, Linkedin, Mail, MapPin, Send, Phone } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -91,11 +92,31 @@ export default function Contact() {
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setErrors({});
     setStatus('sending');
-    // TODO: Replace with EmailJS call
-    // await emailjs.send('SERVICE_ID', 'TEMPLATE_ID', form, 'PUBLIC_KEY');
-    await new Promise(r => setTimeout(r, 1600));
-    setStatus('sent');
-    setForm(INITIAL);
+    
+    try {
+      // TODO: Set up emailjs.com account, connect Gmail, and replace these keys:
+      const SERVICE_ID = 'YOUR_SERVICE_ID';
+      const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+      const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: form.name,
+          reply_to: form.email,
+          message: form.message,
+        },
+        PUBLIC_KEY
+      );
+      
+      setStatus('sent');
+      setForm(INITIAL);
+    } catch (err) {
+      console.error('EmailJS Error:', err);
+      setStatus('idle');
+      setErrors({ message: 'ERROR: Failed to send message. Please check console or your EmailJS config.' });
+    }
   };
 
   const inputClass = `w-full px-4 py-2.5 rounded-lg font-mono text-sm text-textPrimary outline-none transition-all duration-200`;

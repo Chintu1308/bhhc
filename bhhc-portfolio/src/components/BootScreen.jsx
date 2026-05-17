@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import heroImg from '../assets/hero.png';
 
 const ASCII_LOGO = `
  ██████╗ ██╗  ██╗██╗  ██╗ ██████╗    ███╗   ███╗███████╗
@@ -211,7 +212,7 @@ export default function BootScreen({ onComplete }) {
             <div className="absolute inset-0 pointer-events-none z-10 opacity-30" style={{ background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, #000 2px, #000 4px)' }}></div>
             {/* The Image */}
             <img 
-              src="/src/assets/hero.png" 
+              src={heroImg} 
               alt="BHHC" 
               className="w-full h-full object-cover mix-blend-screen"
               style={{ filter: 'grayscale(100%) sepia(100%) hue-rotate(85deg) saturate(300%) contrast(150%) brightness(0.8)' }}

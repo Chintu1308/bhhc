@@ -11,10 +11,12 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Achievements from './components/Achievements';
 import Certifications from './components/Certifications';
+import Blog from './components/Blog';
 import BuildProgress from './components/BuildProgress';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import UnderConstruction from './city/UnderConstruction';
+import SEO from './components/SEO';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -112,6 +114,7 @@ export default function App() {
 
   return (
     <>
+      <SEO />
       <Cursor />
       {booting && <BootScreen onComplete={handleBootComplete} />}
 
@@ -135,8 +138,8 @@ export default function App() {
             <Skills />
             <Divider color="#818cf8" />
             <Achievements />
-            {/* <Divider color="#f0c040" />
-            <Certifications /> */}
+            <Divider color="#f0c040" />
+            <Blog />
             <Divider color="#0dcfc0" />
             <Contact />
             <Footer />
