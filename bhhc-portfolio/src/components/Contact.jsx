@@ -97,7 +97,7 @@ export default function Contact() {
       // TODO: Set up emailjs.com account, connect Gmail, and replace these keys:
       const SERVICE_ID = 'service_s1b07xa';
       const TEMPLATE_ID = 'service_s1b07xa';
-      const PUBLIC_KEY = 'axEQwjxgRuycm-VHW';
+      const PUBLIC_KEY = '5CLcRXV2ARti_eK3T';
 
       await emailjs.send(
         SERVICE_ID,
