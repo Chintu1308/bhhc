@@ -40,6 +40,11 @@ export default function Footer() {
               <Linkedin size={14} /> LinkedIn
             </a>
             <span className="text-cardBorder">|</span>
+            <a href="https://instagram.com/binge_watcher._" target="_blank" rel="noopener noreferrer"
+              className="hover:text-accent transition-colors flex items-center gap-1.5">
+              <Instagram size={14} /> Instagram
+            </a>
+            <span className="text-cardBorder">|</span>
             <a href="mailto:bhhc1308@gmail.com"
               className="hover:text-accent transition-colors flex items-center gap-1.5">
               <Mail size={14} /> Email

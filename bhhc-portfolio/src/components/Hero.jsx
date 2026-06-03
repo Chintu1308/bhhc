@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
+import { Github, Linkedin, Mail, ChevronDown, Instagram } from 'lucide-react';
 import { useTypewriter } from '../hooks/useTypewriter';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -248,6 +248,7 @@ export default function Hero() {
             {[
               { Icon: Github, href: 'https://github.com/Chintu1308' },
               { Icon: Linkedin, href: 'https://linkedin.com/in/bhhc' },
+              { Icon: Instagram, href: 'https://instagram.com/binge_watcher._' },
               { Icon: Mail, href: 'mailto:bhhc1308@gmail.com' },
             ].map(({ Icon, href }) => (
               <a
