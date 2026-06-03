@@ -125,8 +125,8 @@ function AchievementCard({ item, index }) {
   );
 }
 
-/* ── Patent Card with rotating 3D seal ── */
-function PatentCard() {
+/* ── Sumedha Coordinator Card with rotating 3D seal ── */
+function SumedhaCard() {
   const cardRef = useRef();
   const sealRef = useRef();
 
@@ -155,7 +155,7 @@ function PatentCard() {
   return (
     <div
       ref={cardRef}
-      className="opacity-0 rounded-2xl border p-8 flex flex-col gap-5 relative overflow-hidden"
+      className="opacity-0 rounded-2xl border p-8 flex flex-col gap-5 relative overflow-hidden h-fit"
       style={{
         borderColor: 'rgba(0,255,136,0.4)',
         background: 'rgba(0,255,136,0.04)',
@@ -184,22 +184,21 @@ function PatentCard() {
 
       {/* Header */}
       <div className="flex items-center gap-4 relative z-10">
-        {/* Rotating patent seal SVG */}
+        {/* Rotating event seal SVG */}
         <div ref={sealRef} className="flex-shrink-0">
           <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
             <circle cx="30" cy="30" r="27" stroke="#39d353" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.8"/>
             <circle cx="30" cy="30" r="22" stroke="#0dcfc0" strokeWidth="1" opacity="0.5"/>
             <circle cx="30" cy="30" r="16" fill="rgba(57,211,83,0.1)" stroke="#39d353" strokeWidth="1.5"/>
-            <text x="30" y="26" textAnchor="middle" fill="#39d353" fontSize="7" fontFamily="JetBrains Mono">PATENT</text>
-            <text x="30" y="35" textAnchor="middle" fill="#0dcfc0" fontSize="6" fontFamily="JetBrains Mono">IPO</text>
-            <text x="30" y="43" textAnchor="middle" fill="#39d353" fontSize="5" fontFamily="JetBrains Mono">2026</text>
+            <text x="30" y="28" textAnchor="middle" fill="#39d353" fontSize="8" fontFamily="JetBrains Mono" fontWeight="bold">EVENT</text>
+            <text x="30" y="38" textAnchor="middle" fill="#0dcfc0" fontSize="7" fontFamily="JetBrains Mono">LEAD</text>
           </svg>
         </div>
         <div>
           <div className="font-mono text-xs text-accent uppercase tracking-widest mb-0.5">
-            Patent Published
+            Overall Student Coordinator
           </div>
-          <div className="font-mono text-xs text-textMuted">Indian Patent Office</div>
+          <div className="font-mono text-xs text-textMuted">Sumedha</div>
         </div>
       </div>
 
@@ -208,16 +207,16 @@ function PatentCard() {
         className="font-display font-bold leading-snug relative z-10"
         style={{ fontSize: 'clamp(0.85rem, 1.8vw, 1rem)', color: '#e8fff4' }}
       >
-        "Artificial Intelligence (AI)–Based System for Detection and Response to Aquatic Safety Events and Method Thereof"
+        "Completely took care of design, promotions, and the smooth organization of events, and also secured several sponsorships."
       </h3>
 
       {/* Meta */}
-      <div className="grid grid-cols-2 gap-2 relative z-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 relative z-10">
         {[
-          ['Filed', 'January 2026'],
-          ['Published', 'February 2026'],
-          ['Publisher', 'Indian Patent Office'],
-          ['Status', 'Active'],
+          ['Role', 'Coordinator'],
+          ['Event', 'Sumedha'],
+          ['Focus', 'Design & Promo'],
+          ['Sponsors', 'Secured'],
         ].map(([k, v]) => (
           <div key={k} className="font-mono text-xs">
             <span className="text-primary">{k}: </span>
@@ -228,7 +227,7 @@ function PatentCard() {
 
       {/* Tags */}
       <div className="flex flex-wrap gap-2 relative z-10">
-        {['AI', 'Safety Systems', 'IoT', 'Emergency Response'].map(tag => (
+        {['Event Management', 'Design', 'Promotions', 'Sponsorships'].map(tag => (
           <span
             key={tag}
             className="px-2.5 py-0.5 rounded-full font-mono text-[10px] border"
@@ -291,15 +290,15 @@ export default function Achievements() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
           {/* Left: achievement list */}
           <div className="space-y-3">
             {achievements.map((item, idx) => (
               <AchievementCard key={item.id} item={item} index={idx} />
             ))}
           </div>
-          {/* Right: Patent */}
-          <PatentCard />
+          {/* Right: Sumedha Coordinator */}
+          <SumedhaCard />
         </div>
       </div>
     </section>

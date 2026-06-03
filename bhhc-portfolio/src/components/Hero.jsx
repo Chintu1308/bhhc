@@ -182,7 +182,7 @@ export default function Hero() {
                 WebkitTextStroke: '1.5px rgba(57,211,83,0.4)',
               }}
             >
-              .exe
+              .me
             </span>
           </h1>
         </div>
@@ -301,7 +301,7 @@ export default function Hero() {
 
       {/* ── Engine Stamp ── */}
       <div className="absolute bottom-8 right-8 font-mono text-[10px] text-textMuted text-right leading-relaxed z-10 hidden md:block" style={{ color: 'rgba(122,175,160,0.6)' }}>
-        data-engine="three.js r184"<br/>
+        data-engine="three.js"<br/>
         sys.status="NOMINAL"<br/>
         <span style={{ color: 'rgba(57,211,83,0.4)' }}>// render sequence complete</span>
       </div>

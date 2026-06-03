@@ -7,7 +7,7 @@ export const projects = [
       "A platform enabling travelers to stay legally informed, culturally aware, and practically prepared across borders. Features country comparison, real-time advisories, emergency contacts, and live currency exchange APIs.",
     tags: ["React", "API Integration", "Currency Exchange", "Travel Tech", "Legal Data"],
     github: "https://github.com/Chintu1308/borderless-safety",
-    live: "https://chintu1308.github.io/borderless-safety/",
+    live: "https://bs.bhhc.me/",
     color: "#0dcfc0",
   },
   {
@@ -17,8 +17,8 @@ export const projects = [
     description:
       "End-to-end IoT platform for real-time power consumption tracking, remote device control, and hardware management. Features live telemetry dashboards, historical analytics, and relay switches.",
     tags: ["IoT", "MQTT", "WebSocket", "MongoDB", "Supabase", "Python", "React", "Time-Series"],
-    github: "https://github.com/Chintu1308/energy-meter",
-    live: null,
+    github: null,
+    live: "https://em.skjal.com/",
     color: "#39d353",
   },
   {
