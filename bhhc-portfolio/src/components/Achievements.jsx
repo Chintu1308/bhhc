@@ -19,14 +19,10 @@ const ICONS_3D = {
       <circle cx="14" cy="14" r="4" fill={color} opacity="0.9"/>
     </svg>
   ),
-  'Patent Published': (color) => (
+  'Student Coordinator — Sumedha': (color) => (
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <rect x="4" y="2" width="16" height="22" rx="2" fill={`${color}15`} stroke={color} strokeWidth="1.2"/>
-      <line x1="8" y1="9" x2="16" y2="9" stroke={color} strokeWidth="1"/>
-      <line x1="8" y1="13" x2="16" y2="13" stroke={color} strokeWidth="1"/>
-      <line x1="8" y1="17" x2="13" y2="17" stroke={color} strokeWidth="1"/>
-      <circle cx="20" cy="20" r="6" fill={`${color}22`} stroke={color} strokeWidth="1.2"/>
-      <text x="20" y="24" textAnchor="middle" fontSize="7" fill={color} fontWeight="bold">✓</text>
+      <circle cx="14" cy="14" r="10" fill={`${color}15`} stroke={color} strokeWidth="1.2"/>
+      <path d="M14 7l2 4.5 4.5.5-3.5 3 1 4.5-4-2.5-4 2.5 1-4.5-3.5-3 4.5-.5z" fill={color} opacity="0.9"/>
     </svg>
   ),
   'B.Tech CSE 2023–2027': (color) => (
@@ -125,8 +121,8 @@ function AchievementCard({ item, index }) {
   );
 }
 
-/* ── Sumedha Coordinator Card with rotating 3D seal ── */
-function SumedhaCard() {
+/* ── Patent Card with rotating 3D seal ── */
+function PatentCard() {
   const cardRef = useRef();
   const sealRef = useRef();
 
@@ -184,21 +180,22 @@ function SumedhaCard() {
 
       {/* Header */}
       <div className="flex items-center gap-4 relative z-10">
-        {/* Rotating event seal SVG */}
+        {/* Rotating patent seal SVG */}
         <div ref={sealRef} className="flex-shrink-0">
           <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
             <circle cx="30" cy="30" r="27" stroke="#39d353" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.8"/>
             <circle cx="30" cy="30" r="22" stroke="#0dcfc0" strokeWidth="1" opacity="0.5"/>
             <circle cx="30" cy="30" r="16" fill="rgba(57,211,83,0.1)" stroke="#39d353" strokeWidth="1.5"/>
-            <text x="30" y="28" textAnchor="middle" fill="#39d353" fontSize="8" fontFamily="JetBrains Mono" fontWeight="bold">EVENT</text>
-            <text x="30" y="38" textAnchor="middle" fill="#0dcfc0" fontSize="7" fontFamily="JetBrains Mono">LEAD</text>
+            <text x="30" y="26" textAnchor="middle" fill="#39d353" fontSize="7" fontFamily="JetBrains Mono">PATENT</text>
+            <text x="30" y="35" textAnchor="middle" fill="#0dcfc0" fontSize="6" fontFamily="JetBrains Mono">IPO</text>
+            <text x="30" y="43" textAnchor="middle" fill="#39d353" fontSize="5" fontFamily="JetBrains Mono">2026</text>
           </svg>
         </div>
         <div>
           <div className="font-mono text-xs text-accent uppercase tracking-widest mb-0.5">
-            Overall Student Coordinator
+            Patent Published
           </div>
-          <div className="font-mono text-xs text-textMuted">Sumedha</div>
+          <div className="font-mono text-xs text-textMuted">Indian Patent Office</div>
         </div>
       </div>
 
@@ -207,16 +204,16 @@ function SumedhaCard() {
         className="font-display font-bold leading-snug relative z-10"
         style={{ fontSize: 'clamp(0.85rem, 1.8vw, 1rem)', color: '#e8fff4' }}
       >
-        "Completely took care of design, promotions, and the smooth organization of events, and also secured several sponsorships."
+        "Artificial Intelligence (AI)–Based System for Detection and Response to Aquatic Safety Events and Method Thereof"
       </h3>
 
       {/* Meta */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 relative z-10">
+      <div className="grid grid-cols-2 gap-2 relative z-10">
         {[
-          ['Role', 'Coordinator'],
-          ['Event', 'Sumedha'],
-          ['Focus', 'Design & Promo'],
-          ['Sponsors', 'Secured'],
+          ['Filed', 'January 2026'],
+          ['Published', 'February 2026'],
+          ['Publisher', 'Indian Patent Office'],
+          ['Status', 'Active'],
         ].map(([k, v]) => (
           <div key={k} className="font-mono text-xs">
             <span className="text-primary">{k}: </span>
@@ -227,7 +224,7 @@ function SumedhaCard() {
 
       {/* Tags */}
       <div className="flex flex-wrap gap-2 relative z-10">
-        {['Event Management', 'Design', 'Promotions', 'Sponsorships'].map(tag => (
+        {['AI', 'Safety Systems', 'IoT', 'Emergency Response'].map(tag => (
           <span
             key={tag}
             className="px-2.5 py-0.5 rounded-full font-mono text-[10px] border"
@@ -297,8 +294,8 @@ export default function Achievements() {
               <AchievementCard key={item.id} item={item} index={idx} />
             ))}
           </div>
-          {/* Right: Sumedha Coordinator */}
-          <SumedhaCard />
+          {/* Right: Patent */}
+          <PatentCard />
         </div>
       </div>
     </section>

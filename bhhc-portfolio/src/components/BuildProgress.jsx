@@ -12,7 +12,7 @@ const OSI_LAYERS = [
   { num: 4, name: 'Transport',    abbr: 'TRP', section: 'skills',       color: '#39d353', desc: 'Reliability', proto: 'TCP · UDP' },
   { num: 5, name: 'Session',      abbr: 'SES', section: 'achievements', color: '#a3e635', desc: 'State',       proto: 'Socket · Auth' },
   { num: 6, name: 'Presentation', abbr: 'PRS', section: 'blog',         color: '#f59e0b', desc: 'Format',    proto: 'TLS · JSON' },
-  { num: 7, name: 'Application',  abbr: 'APP', section: 'contact',      color: '#00ff88', desc: 'Interface',   proto: 'HTTP · DNS' },
+  { num: 7, name: 'Application',  abbr: 'APP', section: 'contact',      color: '#00ff88', desc: 'Interface',   proto: 'HTTPS · DNS' },
 ];
 
 function LayerBar({ layer, active, current }) {
@@ -139,6 +139,7 @@ function StackDiagram({ activeCount }) {
 export default function BuildProgress() {
   const [stage, setStage] = useState(0);       // 0 = nothing active
   const [visible, setVisible] = useState(true);
+  const [collapsed, setCollapsed] = useState(false);
   const panelRef = useRef();
 
   useEffect(() => {
@@ -195,72 +196,87 @@ export default function BuildProgress() {
             className="w-2.5 h-2.5 rounded-full bg-red-500 hover:bg-red-400 transition-colors flex-shrink-0 cursor-pointer"
             style={{ boxShadow: '0 0 4px rgba(239,68,68,0.6)' }}
           />
-          <div className="w-2 h-2 rounded-full bg-yellow-400 opacity-50 flex-shrink-0" />
-          <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: '#39d353', opacity: 0.5 }} />
+          <button
+            onClick={() => setCollapsed(!collapsed)}
+            title="Minimize"
+            className="w-2.5 h-2.5 rounded-full bg-yellow-400 hover:bg-yellow-300 transition-colors flex-shrink-0 cursor-pointer"
+            style={{ boxShadow: '0 0 4px rgba(250,204,21,0.6)' }}
+          />
+          <button
+            onClick={() => setCollapsed(false)}
+            title="Restore"
+            className="w-2.5 h-2.5 rounded-full bg-green-500 hover:bg-green-400 transition-colors flex-shrink-0 cursor-pointer"
+            style={{ boxShadow: '0 0 4px rgba(34,197,94,0.6)' }}
+          />
           <span className="font-mono text-[9px] text-textMuted ml-1 flex-1 tracking-wider">OSI STACK</span>
         </div>
 
-        {/* ── Stack diagram SVG ── */}
-        <div className="px-2.5 pt-2.5 pb-1">
-          <StackDiagram activeCount={stage} />
-        </div>
+        {/* ── Collapsible Body ── */}
+        {!collapsed && (
+          <>
+            {/* ── Stack diagram SVG ── */}
+            <div className="px-2.5 pt-2.5 pb-1">
+              <StackDiagram activeCount={stage} />
+            </div>
 
-        {/* ── Progress bar ── */}
-        <div className="px-2.5 pb-2 pt-1">
-          <div className="flex justify-between font-mono mb-1"
-            style={{ fontSize: '8px', color: 'rgba(122,175,160,0.55)' }}>
-            <span>build progress</span>
-            <span style={{ color: currentLayer?.color || '#39d353' }}>{percent}%</span>
-          </div>
-          <div className="h-0.5 rounded-full overflow-hidden" style={{ background: 'rgba(0,255,136,0.08)' }}>
-            <div className="h-full rounded-full transition-all duration-700 ease-out"
-              style={{
-                width: `${percent}%`,
-                background: `linear-gradient(90deg, #3b82f6, #0dcfc0, ${currentLayer?.color || '#39d353'})`,
-                boxShadow: `0 0 6px ${currentLayer?.color || '#39d353'}`,
-              }}
-            />
-          </div>
-        </div>
+            {/* ── Progress bar ── */}
+            <div className="px-2.5 pb-2 pt-1">
+              <div className="flex justify-between font-mono mb-1"
+                style={{ fontSize: '8px', color: 'rgba(122,175,160,0.55)' }}>
+                <span>build progress</span>
+                <span style={{ color: currentLayer?.color || '#39d353' }}>{percent}%</span>
+              </div>
+              <div className="h-0.5 rounded-full overflow-hidden" style={{ background: 'rgba(0,255,136,0.08)' }}>
+                <div className="h-full rounded-full transition-all duration-700 ease-out"
+                  style={{
+                    width: `${percent}%`,
+                    background: `linear-gradient(90deg, #3b82f6, #0dcfc0, ${currentLayer?.color || '#39d353'})`,
+                    boxShadow: `0 0 6px ${currentLayer?.color || '#39d353'}`,
+                  }}
+                />
+              </div>
+            </div>
 
-        {/* ── Layer log ── */}
-        <div className="px-2.5 pb-2.5 space-y-0.5 border-t"
-          style={{ borderColor: 'rgba(0,255,136,0.07)' }}>
-          <div className="pt-2" />
-          {[...OSI_LAYERS].reverse().map((layer, idx) => {
-            const originalIdx = OSI_LAYERS.length - 1 - idx;
-            return (
-              <LayerBar
-                key={layer.num}
-                layer={layer}
-                active={originalIdx < stage}
-                current={originalIdx === stage - 1}
-              />
-            );
-          })}
-        </div>
+            {/* ── Layer log ── */}
+            <div className="px-2.5 pb-2.5 space-y-0.5 border-t"
+              style={{ borderColor: 'rgba(0,255,136,0.07)' }}>
+              <div className="pt-2" />
+              {[...OSI_LAYERS].reverse().map((layer, idx) => {
+                const originalIdx = OSI_LAYERS.length - 1 - idx;
+                return (
+                  <LayerBar
+                    key={layer.num}
+                    layer={layer}
+                    active={originalIdx < stage}
+                    current={originalIdx === stage - 1}
+                  />
+                );
+              })}
+            </div>
 
-        {/* ── Status footer ── */}
-        <div className="px-2.5 pb-2.5">
-          <div className="rounded-lg px-2 py-1.5 font-mono text-center"
-            style={{
-              fontSize: '8px',
-              background: isComplete ? 'rgba(0,255,136,0.08)' : 'rgba(57,211,83,0.04)',
-              border: `1px solid ${isComplete ? 'rgba(0,255,136,0.3)' : 'rgba(57,211,83,0.1)'}`,
-              color: isComplete ? '#00ff88' : 'rgba(122,175,160,0.6)',
-            }}>
-            {isComplete ? (
-              <span>
-                <span style={{ animation: 'glow-pulse 1s ease infinite', display: 'inline-block', marginRight: '4px' }}>●</span>
-                SYSTEM ONLINE
-              </span>
-            ) : stage === 0 ? (
-              '○  Awaiting scroll...'
-            ) : (
-              `▶  ${currentLayer?.name} layer active`
-            )}
-          </div>
-        </div>
+            {/* ── Status footer ── */}
+            <div className="px-2.5 pb-2.5">
+              <div className="rounded-lg px-2 py-1.5 font-mono text-center"
+                style={{
+                  fontSize: '8px',
+                  background: isComplete ? 'rgba(0,255,136,0.08)' : 'rgba(57,211,83,0.04)',
+                  border: `1px solid ${isComplete ? 'rgba(0,255,136,0.3)' : 'rgba(57,211,83,0.1)'}`,
+                  color: isComplete ? '#00ff88' : 'rgba(122,175,160,0.6)',
+                }}>
+                {isComplete ? (
+                  <span>
+                    <span style={{ animation: 'glow-pulse 1s ease infinite', display: 'inline-block', marginRight: '4px' }}>●</span>
+                    SYSTEM ONLINE
+                  </span>
+                ) : stage === 0 ? (
+                  '○  Awaiting scroll...'
+                ) : (
+                  `▶  ${currentLayer?.name} layer active`
+                )}
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       {/* Tooltip on hover showing protocol info */}

@@ -19,11 +19,11 @@ export const achievements = [
   },
   {
     id: 3,
-    icon: "📜",
-    title: "Patent Published",
-    subtitle: "Indian Patent Office",
-    detail: "Filed Jan 2026 · Published Feb 2026",
-    badge: "ACTIVE",
+    icon: "🌟",
+    title: "Student Coordinator — Sumedha",
+    subtitle: "Overall Student Coordinator",
+    detail: "Handled design, promotions, organization, and secured sponsors",
+    badge: "COMPLETED",
     badgeColor: "#0dcfc0",
   },
   {

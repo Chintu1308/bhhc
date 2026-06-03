@@ -87,7 +87,7 @@ export default function Navbar({ cityMode, setCityMode }) {
           >
             BHHC
           </span>
-          <span className="font-mono text-xs text-textMuted hidden sm:block">.exe</span>
+          <span className="font-mono text-xs text-textMuted hidden sm:block">.me</span>
         </a>
 
         {/* Desktop Nav */}

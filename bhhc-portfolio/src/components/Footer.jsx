@@ -23,7 +23,7 @@ export default function Footer() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="font-mono text-xs text-textMuted space-y-2 text-center">
-          <div className="text-accent font-bold font-display text-base mb-4">BHHC.exe</div>
+          <div className="text-accent font-bold font-display text-base mb-4">BHHC.me</div>
 
           <div>
             &gt; Built with too much caffeine ☕
